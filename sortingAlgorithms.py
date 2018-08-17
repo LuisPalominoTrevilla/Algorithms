@@ -1,4 +1,5 @@
 import random
+from queue import Queue
 
 # Bubble Sort algorithm -> Worst Case Time Complexity: O(n^2)
 def bubbleSort(numbers):
@@ -192,7 +193,29 @@ class Heap:
             res += str(x) + ", " 
         return res + ")"
 
-arr = [5,4,3,2,1,0]
-h = Heap()
-h.heapSort(arr)
-print(arr)
+# Radix Sort, works only for integer unsigned numbers
+# Radix sort algorithm -> Worst Case Time Complexity: O(kn)
+def radixSort(numbers):
+    counting = []
+    for i in range(11):
+        counting.append(Queue());
+    decimals = len(str(max(numbers)))
+    
+    for i in range (decimals):
+        for number in numbers:
+            digit = (number // 10**i)
+            if(digit < 0):
+                digit = -1;
+            else:
+                digit %= 10
+            counting[digit+1].put(number)
+        # dequee
+        index = 0
+        for x in counting:
+            while not x.empty():
+                numbers[index] = x.get()
+                index += 1
+        
+numbers = [45, -4, 90, 2, 78, 669, -99, -5]
+radixSort(numbers)
+print(numbers)
