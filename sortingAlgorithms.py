@@ -21,9 +21,9 @@ def insertionSort(numbers):
 # Selection Sort algorithm -> Worst Case Time Complexity: O(n^2)
 def selectionSort(numbers):
     n= len(numbers)
-    for i in range(n):
+    for i in range(n-1):
         min = i
-        for j in range(i+1, n):
+        for j in range(i, n):
             if numbers[j] < numbers[min]:
                 min = j
         numbers[i], numbers[min] = numbers[min], numbers[i]
@@ -216,6 +216,6 @@ def radixSort(numbers):
                 numbers[index] = x.get()
                 index += 1
         
-numbers = [45, -4, 90, 2, 78, 669, -99, -5]
-radixSort(numbers)
+numbers = [45, 30, 59, 12, 66, 23 ]
+selectionSort(numbers)
 print(numbers)
