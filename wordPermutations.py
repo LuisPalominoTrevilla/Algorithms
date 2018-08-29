@@ -8,8 +8,8 @@ Created on Mon Aug 27 17:12:34 2018
 def permutate(word, i = 0, permutations = list()):
     if type(word) is str:
         word = list(word)
-    # base case
     n = len(word)
+    # base case
     if i == n-1:
         permutations.append(''.join(word))
         return
@@ -23,6 +23,13 @@ def permutate(word, i = 0, permutations = list()):
             permutate(word, i+1, permutations)
             # Change the word to its state before the recursive permutations
             word = tmp[:]
+            """
+                The following line would be an easier way of solving it without
+                using more space and spending less time. It would produce the same results
+                I decided not to use the next line so it could be easier to understand
+                the process.
+            """ 
+            #word[i], word[char] = word[char], word[i]
     return permutations
 
-print(permutate("abc"))
+print(permutate("xyz"))
