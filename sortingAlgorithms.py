@@ -229,5 +229,5 @@ def shellSort(x, h):
         h=h-2
 
 numbers = [2, 2, 3, 4, 5, 8, 12, 13, 15, 17, 19, 32, 33, 54, 68, 72]
-shellSort(numbers, 5)
+bubbleSort(numbers)
 print(numbers)
