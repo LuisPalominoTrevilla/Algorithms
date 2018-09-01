@@ -10,13 +10,15 @@ def bubbleSort(numbers):
                 numbers[j], numbers[j+1] = numbers[j+1], numbers[j]
 
 # Insertion Sort algorithm -> Worst Case Time Complexity: O(n^2)
-def insertionSort(numbers):
-    n = len(numbers)
+def insertionSort(x):
+    n = len(x)
     for i in range(n):
+        tmp = x[i]
         k = i
-        while k > 0 and numbers[k] < numbers[k-1]:
-            numbers[k], numbers[k-1]= numbers[k-1], numbers[k]
+        while k > 0 and tmp < x[k-1]:
+            x[k] = x[k-1]
             k-=1
+        x[k] = tmp
 
 # Selection Sort algorithm -> Worst Case Time Complexity: O(n^2)
 def selectionSort(numbers):
@@ -228,6 +230,6 @@ def shellSort(x, h):
             x[j+h] = aux
         h=h-2
 
-numbers = [2, 2, 3, 4, 5, 8, 12, 13, 15, 17, 19, 32, 33, 54, 68, 72]
-bubbleSort(numbers)
+numbers = [10, 9,10,0, 8,7,6,5,4,3,2,1,0]
+insertionSort(numbers)
 print(numbers)

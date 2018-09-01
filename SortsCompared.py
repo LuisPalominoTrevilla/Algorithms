@@ -28,10 +28,12 @@ def selectionSort(x):
 def insertionSort(x):
     n = len(x)
     for i in range(n):
+        tmp = x[i]
         k = i
-        while k > 0 and x[k] < x[k-1]:
-            x[k], x[k-1]= x[k-1], x[k]
+        while k > 0 and tmp < x[k-1]:
+            x[k] = x[k-1]
             k-=1
+        x[k] = tmp
 
 def shellSort(x, h):
     while h>=1:
