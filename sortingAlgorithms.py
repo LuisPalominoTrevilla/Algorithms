@@ -215,7 +215,19 @@ def radixSort(numbers):
             while not x.empty():
                 numbers[index] = x.get()
                 index += 1
-        
-numbers = [45, 30, 59, 12, 66, 23 ]
-selectionSort(numbers)
+
+# ShellSort Worst Case Time Complexity: O(n^2)
+def shellSort(x, h):
+    while h>=1:
+        for i in range(h,len(x)):
+            aux = x[i]
+            j=i-h
+            while(j>=0 and aux<x[j]):
+                x[j+h] = x[j]
+                j=j-h
+            x[j+h] = aux
+        h=h-2
+
+numbers = [2, 2, 3, 4, 5, 8, 12, 13, 15, 17, 19, 32, 33, 54, 68, 72]
+shellSort(numbers, 5)
 print(numbers)

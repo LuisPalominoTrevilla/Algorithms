@@ -32,4 +32,4 @@ def permutate(word, i = 0, permutations = list()):
             #word[i], word[char] = word[char], word[i]
     return permutations
 
-print(permutate("xyz"))
+print(permutate("abcded"))
