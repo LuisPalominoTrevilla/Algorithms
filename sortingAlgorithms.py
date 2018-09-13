@@ -199,18 +199,14 @@ class Heap:
 # Radix sort algorithm -> Worst Case Time Complexity: O(kn)
 def radixSort(numbers):
     counting = []
-    for i in range(11):
+    for i in range(10):
         counting.append(Queue());
     decimals = len(str(max(numbers)))
     
     for i in range (decimals):
         for number in numbers:
-            digit = (number // 10**i)
-            if(digit < 0):
-                digit = -1;
-            else:
-                digit %= 10
-            counting[digit+1].put(number)
+            digit = (number // 10**i)%10
+            counting[digit].put(number)
         # dequee
         index = 0
         for x in counting:
@@ -229,7 +225,25 @@ def shellSort(x, h):
                 j=j-h
             x[j+h] = aux
         h=h-2
+        
+# Counting Sort Worst Case Time Complexity: O(n+k)
+def countingSort(x):
+    biggest = max(x)
+    smallest = min(x)
+    n = (biggest-smallest)+1
+    # Create an array that contains the biggest and smallest elements
+    count = [0 for j in range(n)]
+    # Iterate over x and add one to respective count position
+    for index in x:
+        count[index-smallest] += 1
+    # Iterate over count array and fill x array in order
+    pos_x = 0
+    for ordered in range(len(count)):
+        for i in range(count[ordered]):
+            x[pos_x] = smallest+ordered
+            pos_x+=1
+    
 
-numbers = [10, 9,10,0, 8,7,6,5,4,3,2,1,0]
-insertionSort(numbers)
+numbers = [10,9,8,7,6,5,4,3,2,1]
+countingSort(numbers)
 print(numbers)
