@@ -7,13 +7,22 @@ Created on Tue Sep 11 19:41:44 2018
 
 import math
 
-def f_x(n, x):
-    return n**2 - x
+# Utilizando Newton Raphson para calcular la raiz de la ecuación:
+# x^2 - n
+# Donde:
+# n -> es el valor del número cuya raiz cuadrada desea ser calculada
+# x -> el valor aproximado de la raíz cuadrada
 
-def df_x(n):
-    return 2*n
+# Evaluar función f(x)
+def f_x(x, n):
+    return x*x - n
 
-def sqrt(x):
+# Evaluar la derivada df/dx
+def df_x(x):
+    return 2*x
+
+def raiz(x):
+    # Tolerancia a calcular la raiz cuadrada
     tol = .001
     x0 = 1
     x1 = 1
@@ -22,4 +31,4 @@ def sqrt(x):
         x0 = x1
     return math.floor(x1)
 
-print(sqrt(25))
+print(raiz(190))
