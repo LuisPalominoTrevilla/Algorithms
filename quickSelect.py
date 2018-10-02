@@ -6,13 +6,11 @@ Created on Sun Sep 30 15:08:04 2018
 """
 from random import randint
 def quickSelect(x, l, h, j):
-    if h-l < 1:
+    if j-1 < l or j-1 >= h or h-l < 1:
         return -1
     pivot = randint(l,h-1)
-    print("low is ", l, " high is ", h)
     x[l], x[pivot] = x[pivot], x[l]
     pivot_position = partition(x, l, h)
-    print("pivot is ", pivot_position)
     if pivot_position+1==j:
         return x[pivot_position]
     elif pivot_position+1 > j:
@@ -28,8 +26,5 @@ def partition(x, l, h):
             i+=1
     x[l], x[i-1] = x[i-1], x[l]
     return i-1
-integers = open("./quicksort.txt", "r")
-x = []
-for integer in integers:
-    x.append(int(integer.rstrip()))
-print(quickSelect(x, 0, len(x), 999))
+x=[7, 10, 4, 3, 20, 15]
+print(quickSelect(x, 0, len(x), 7))
