@@ -200,7 +200,7 @@ class Heap:
 def radixSort(numbers):
     counting = []
     for i in range(10):
-        counting.append(Queue());
+        counting.append(Queue())
     decimals = len(str(max(numbers)))
     
     for i in range (decimals):
