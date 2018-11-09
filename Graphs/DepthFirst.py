@@ -1,4 +1,3 @@
-from collections import deque
 class Vertice:
     def __init__(self, val):
         self.history = []
@@ -17,10 +16,10 @@ class Graph:
         self.vertices[u].addAdjacent(self.vertices[v])
         self.vertices[v].addAdjacent(self.vertices[u])
 def BreadthWiseSearch(g, start, end):
-    work = deque()
+    work = []
     visited = set()
     start.history = []
-    work.appendleft(start)
+    work.append(start)
     visited.add(start)
     while len(work):
         current = work.pop()
@@ -33,7 +32,7 @@ def BreadthWiseSearch(g, start, end):
                 if neighbor not in visited:
                     neighbor.history = current.history.copy()
                     neighbor.history.append(current)
-                    work.appendleft(neighbor)
+                    work.append(neighbor)
                     visited.add(neighbor)
     return None
         
