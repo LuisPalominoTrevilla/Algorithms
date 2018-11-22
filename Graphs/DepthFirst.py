@@ -15,7 +15,7 @@ class Graph:
             self.vertices[v] = Vertice(v)
         self.vertices[u].addAdjacent(self.vertices[v])
         self.vertices[v].addAdjacent(self.vertices[u])
-def BreadthWiseSearch(g, start, end):
+def DepthWiseSearch(g, start, end):
     work = []
     visited = set()
     start.history = []
@@ -41,4 +41,4 @@ graph = Graph()
 for line in graphRep:
     result = [int(x) for x in line.split()]
     graph.addEdge(result[0], result[1])
-print([x.value for x in BreadthWiseSearch(graph, graph.vertices[1], graph.vertices[5])])
+print([x.value for x in DepthWiseSearch(graph, graph.vertices[1], graph.vertices[5])])
